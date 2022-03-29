@@ -24,9 +24,9 @@ namespace DatabaseFirstLINQ
             //ProblemSeven();
             //ProblemEight();
             //ProblemNine();
-            ProblemTen();
+            //ProblemTen();
             //ProblemEleven();
-            //ProblemTwelve();
+            ProblemTwelve();
             //ProblemThirteen();
             //ProblemFourteen();
             //ProblemFifteen();
@@ -204,7 +204,7 @@ namespace DatabaseFirstLINQ
             {
                 Name = "Hammock",
                 Price = 100,
-                Description = "go relax out side in the luxury wool Hammock",
+                Description = "go relax out side in the luxury wool Hammock"
 
 
 
