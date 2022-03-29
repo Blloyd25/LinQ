@@ -26,9 +26,9 @@ namespace DatabaseFirstLINQ
             //ProblemNine();
             //ProblemTen();
             //ProblemEleven();
-            ProblemTwelve();
+            //ProblemTwelve();
             //ProblemThirteen();
-            //ProblemFourteen();
+            ProblemFourteen();
             //ProblemFifteen();
             //ProblemSixteen();
             //ProblemSeventeen();
@@ -231,12 +231,25 @@ namespace DatabaseFirstLINQ
         private void ProblemFourteen()
         {
             // Add the product you create to the user we created in the ShoppingCart junction table using LINQ.
+            var addProduct = _context.Products.Where(ur => ur.Id == 8).Select(ur => ur.Id).SingleOrDefault();
+            var userId = _context.Users.Where(ur => ur.Email == "david@gmail.com").Select(ur => ur.Id).SingleOrDefault();
+            ShoppingCart newShoppingCart = new ShoppingCart()
 
+            {
+
+                UserId = userId,
+                ProductId = addProduct,
+            };
+
+            _context.ShoppingCarts.Add(newShoppingCart);
+            _context.SaveChanges();
         }
 
-        // <><> U Actions (Update) <><>
+    
 
-        private void ProblemFifteen()
+    // <><> U Actions (Update) <><>
+
+    private void ProblemFifteen()
         {
             // Update the email of the user we created to "mike@gmail.com"
             var user = _context.Users.Where(u => u.Email == "david@gmail.com").SingleOrDefault();
@@ -248,6 +261,10 @@ namespace DatabaseFirstLINQ
         private void ProblemSixteen()
         {
             // Update the price of the product you created to something different using LINQ.
+            var product = _context.Products.Include(pi => pi.Id).Where(pi => pi.Price == 100).SingleOrDefault();
+            product.Price = 125;
+            _context.Products.Update(product);
+            _context.SaveChanges();
 
         }
 
@@ -272,7 +289,8 @@ namespace DatabaseFirstLINQ
         private void ProblemEighteen()
         {
             // Delete the role relationship from the user who has the email "oda@gmail.com" using LINQ.
-
+           
+            
         }
 
         private void ProblemNineteen()
