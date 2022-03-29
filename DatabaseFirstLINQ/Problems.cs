@@ -19,8 +19,8 @@ namespace DatabaseFirstLINQ
             //ProblemTwo();
             //ProblemThree();
             //ProblemFour();
-            ProblemFive();
-            //ProblemSix();
+            //ProblemFive();
+            ProblemSix();
             //ProblemSeven();
             //ProblemEight();
             //ProblemNine();
@@ -118,11 +118,17 @@ namespace DatabaseFirstLINQ
             // Write a LINQ query that gets all of the users who registered AFTER 2016 and BEFORE 2018
             // Then print each user's email and registration date to the console.
 
+           
+            var earlyUsers = _context.Users.Where(p => p.RegistrationDate > new DateTime(2015, 12, 31 ) && p.RegistrationDate < new DateTime(2018, 1,1));
+
+            foreach (User user in earlyUsers)
+            {
+                Console.WriteLine($"{user.Email} { user.RegistrationDate}");
+            }
         }
+    // <><><><><><><><> R Actions (Read) with Foreign Keys <><><><><><><><><>
 
-        // <><><><><><><><> R Actions (Read) with Foreign Keys <><><><><><><><><>
-
-        private void ProblemSeven()
+    private void ProblemSeven()
         {
             // Write a LINQ query that retreives all of the users who are assigned to the role of Customer.
             // Then print the users email and role name to the console.
